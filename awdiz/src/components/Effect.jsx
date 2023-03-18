@@ -24,7 +24,7 @@ const Effect = () => {
         fetch("https://fakestoreapi.com/products")
         .then(res => res.json())
         .then( Json => setProducts(Json));
-    });
+    },[]);
 
     return(
         <div>
@@ -33,8 +33,8 @@ const Effect = () => {
             <button onClick={() => {setNumber(number+1)}}>Click</button>
             <button onClick={() => {setNumber2(number2+1)}}>Click for 1</button> */}
 
-            {products && products.map((e) => (
-                <div>
+            {products && products.map((e,i) => (
+                <div key={i}>
                     <div><img src={e.image}/></div>
                     <h1>{e.title}</h1>
                     <p>{e.price}</p>

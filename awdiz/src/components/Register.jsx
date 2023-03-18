@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [userData, setUserData] = useState({
@@ -6,6 +7,9 @@ function Register() {
     email: "",
     password: "",
   });
+
+  const router =useNavigate();
+
   function Submit(e) {
     e.preventDefault();
 
@@ -29,6 +33,7 @@ function Register() {
     } else {
       dataFromLS.push(userData);
       localStorage.setItem("userDataReact", JSON.stringify(dataFromLS));
+      router('/login');
       setUserData({ name: "", email: "", password: "" });
 
     }
