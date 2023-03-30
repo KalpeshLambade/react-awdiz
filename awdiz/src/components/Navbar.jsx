@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import UserContext from "../index";
+
 function Navbar(){
+    const userName =useContext(UserContext);
     return(
         <div>
-            <h1>This is nav bar</h1>
+            Navbar -{userName}
         </div>
     )
 }
